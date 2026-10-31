@@ -80,3 +80,28 @@ TEST_CASE("debouncer fires once after the quiet period", "[slot]") {
     REQUIRE(debounce.poll(600.0));
     REQUIRE_FALSE(debounce.poll(900.0)); // fires once per burst
 }
+
+TEST_CASE("live edits compile once after the debounce and keep the last good shader",
+          "[slot][edit]") {
+    REQUIRE(sf::kShaderDebounceMs == 350.0);
+    int calls = 0;
+    sf::ShaderSlot slot(sf::Platform::Linux, strictDriver(calls));
+    sf::ShaderEditSession session(slot);
+
+    session.edit("void main() { fragColor = vec4(0.0); }\n", 0.0);
+    session.edit("void main() { fragColor = vec4(0.5); }\n", 100.0);
+    REQUIRE_FALSE(session.poll(300.0).has_value()); // still inside the 350 ms window
+    REQUIRE(session.pending());
+
+    const auto accepted = session.poll(500.0);
+    REQUIRE(accepted.has_value());
+    REQUIRE(accepted->accepted);
+    REQUIRE(calls == 1); // only the newest text was compiled
+    REQUIRE(slot.activeSource() == "void main() { fragColor = vec4(0.5); }\n");
+
+    session.edit("BROKEN\n", 600.0);
+    const auto rejected = session.poll(1000.0);
+    REQUIRE(rejected.has_value());
+    REQUIRE(rejected->rolledBack);
+    REQUIRE(slot.activeSource() == "void main() { fragColor = vec4(0.5); }\n");
+}

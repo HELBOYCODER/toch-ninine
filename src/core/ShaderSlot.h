@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -58,6 +59,29 @@ private:
     double delayMs_;
     double lastTouchMs_ = 0.0;
     bool pending_ = false;
+};
+
+// Quiet period after the last edit before the shader is compiled (§4.4 F4).
+inline constexpr double kShaderDebounceMs = 350.0;
+
+// Live-edit path: every edit is debounced, and only the newest text in a burst is
+// compiled through the slot, so a failed compile keeps the last good shader.
+class ShaderEditSession {
+public:
+    explicit ShaderEditSession(ShaderSlot &slot, double debounceMs = kShaderDebounceMs);
+
+    void edit(const std::string &text, double nowMs);
+
+    // Returns the result once the quiet period has elapsed; nullopt otherwise.
+    std::optional<SubmitResult> poll(double nowMs);
+
+    bool pending() const noexcept { return hasPending_; }
+
+private:
+    ShaderSlot &slot_;
+    Debouncer debouncer_;
+    std::string pendingText_;
+    bool hasPending_ = false;
 };
 
 } // namespace sf

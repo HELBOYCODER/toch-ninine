@@ -47,4 +47,21 @@ bool Debouncer::poll(double nowMs) noexcept {
     return true;
 }
 
+ShaderEditSession::ShaderEditSession(ShaderSlot &slot, double debounceMs)
+    : slot_(slot), debouncer_(debounceMs) {}
+
+void ShaderEditSession::edit(const std::string &text, double nowMs) {
+    pendingText_ = text;
+    hasPending_ = true;
+    debouncer_.touch(nowMs);
+}
+
+std::optional<SubmitResult> ShaderEditSession::poll(double nowMs) {
+    if (!hasPending_ || !debouncer_.poll(nowMs)) {
+        return std::nullopt;
+    }
+    hasPending_ = false;
+    return slot_.submit(pendingText_);
+}
+
 } // namespace sf
