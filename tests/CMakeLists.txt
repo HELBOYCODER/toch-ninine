@@ -6,6 +6,7 @@ set(SHAREDFORGE_TEST_SOURCES
     test_state.cpp
     test_bus.cpp
     test_adsr.cpp
+    test_envelopes.cpp
     test_slot.cpp
     test_params.cpp
     test_snapshot.cpp
