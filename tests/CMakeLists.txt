@@ -9,6 +9,7 @@ set(SHAREDFORGE_TEST_SOURCES
     test_envelopes.cpp
     test_slot.cpp
     test_params.cpp
+    test_param_binding.cpp
     test_snapshot.cpp
     test_presets.cpp
 )

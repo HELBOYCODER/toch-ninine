@@ -32,6 +32,7 @@ add_library(sf_core STATIC
     src/core/ShaderPreprocessor.cpp
     src/core/ShaderSlot.cpp
     src/core/TrackEnvelopes.cpp
+    src/core/ParamBinding.cpp
     src/core/State.cpp
 )
 target_include_directories(sf_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)

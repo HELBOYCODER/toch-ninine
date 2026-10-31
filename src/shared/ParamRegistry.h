@@ -44,6 +44,9 @@ struct ParamDesc {
 class ParamRegistry {
 public:
     bool add(const ParamDesc &desc);
+
+    // Removes every parameter whose id lies in [first, last]. Returns how many were removed.
+    std::size_t removeRange(std::uint32_t first, std::uint32_t last);
     const ParamDesc *find(std::uint32_t id) const;
     std::size_t size() const noexcept { return params_.size(); }
 
