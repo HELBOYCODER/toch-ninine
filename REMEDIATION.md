@@ -26,7 +26,7 @@ Status values: **fixed** (verified), **partial** (code added, the finding still 
 | F-018 | S2 | open: no MCP server | — | not started |
 | F-019 | S2 | open: no JUCE target | — | JUCE 8.0.4 fetch and plugin targets are not added |
 | F-020 | S2 | open: no platform layer | — | not started |
-| F-021 | S2 | fixed, pending CI | 7182a95 | CI macOS leg must build arm64+x86_64 at 11.0 |
+| F-021 | S2 | fixed (verified) | 7182a95 | CI run 41203785514 on a97096a: `core (macos-14)` Configure, Build, Test all success |
 | F-022 | S2 | open | — | no hardened runtime, no notarization path |
 | F-023 | S2 | open | — | FFmpeg pin needs a verified tarball hash |
 | F-024 | S2 | open | — | pluginval needs a plugin |
@@ -53,6 +53,6 @@ decision, so it is not made here. Options for the decision:
 
 ## Not yet verified
 
-- F-021 needs the macOS CI leg to pass with the universal build before it can be marked fixed.
+- F-021 is verified by CI run 41203785514 (macOS universal build passed).
 - The final §8.5 step (re-run all of §4.1) and the `chore: audit remediation complete` commit are
   **not** done, because S1 and most S2 findings are still open.
