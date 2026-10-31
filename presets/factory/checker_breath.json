@@ -1,0 +1,21 @@
+{
+  "name": "checker_breath",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "geometric"
+  ],
+  "adsr": [
+    [
+      0.02,
+      0.25,
+      0.6,
+      0.5
+    ]
+  ],
+  "params": {
+    "cells": 8,
+    "breathe": 0.5
+  }
+}

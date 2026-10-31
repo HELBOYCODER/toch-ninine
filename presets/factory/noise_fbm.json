@@ -1,0 +1,22 @@
+{
+  "name": "noise_fbm",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "organic",
+    "noise"
+  ],
+  "adsr": [
+    [
+      0.05,
+      0.4,
+      0.7,
+      0.8
+    ]
+  ],
+  "params": {
+    "amp": 0.6,
+    "speed": 0.1
+  }
+}

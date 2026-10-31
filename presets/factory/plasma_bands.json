@@ -1,0 +1,22 @@
+{
+  "name": "plasma_bands",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "organic",
+    "colour"
+  ],
+  "adsr": [
+    [
+      0.02,
+      0.3,
+      0.7,
+      0.5
+    ]
+  ],
+  "params": {
+    "speed": 0.4,
+    "scale": 3
+  }
+}

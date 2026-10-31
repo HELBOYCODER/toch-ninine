@@ -1,0 +1,22 @@
+{
+  "name": "ring_pulse",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "geometric",
+    "kick"
+  ],
+  "adsr": [
+    [
+      0.005,
+      0.12,
+      0.65,
+      0.2
+    ]
+  ],
+  "params": {
+    "thickness": 0.05,
+    "rings": 6
+  }
+}

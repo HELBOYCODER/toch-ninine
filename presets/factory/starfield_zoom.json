@@ -1,0 +1,22 @@
+{
+  "name": "starfield_zoom",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "space",
+    "motion"
+  ],
+  "adsr": [
+    [
+      0.01,
+      0.2,
+      0.4,
+      0.6
+    ]
+  ],
+  "params": {
+    "speed": 1,
+    "density": 40
+  }
+}

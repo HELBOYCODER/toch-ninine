@@ -1,0 +1,21 @@
+{
+  "name": "grid_warp",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "geometric"
+  ],
+  "adsr": [
+    [
+      0.005,
+      0.1,
+      0.6,
+      0.3
+    ]
+  ],
+  "params": {
+    "warp": 0.3,
+    "density": 10
+  }
+}

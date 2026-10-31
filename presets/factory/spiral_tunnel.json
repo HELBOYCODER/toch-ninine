@@ -1,0 +1,21 @@
+{
+  "name": "spiral_tunnel",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "tunnel"
+  ],
+  "adsr": [
+    [
+      0.01,
+      0.2,
+      0.6,
+      0.5
+    ]
+  ],
+  "params": {
+    "twist": 1.5,
+    "rings": 12
+  }
+}

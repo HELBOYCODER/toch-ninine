@@ -1,0 +1,22 @@
+{
+  "name": "scanline_glitch",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "retro",
+    "glitch"
+  ],
+  "adsr": [
+    [
+      0.001,
+      0.05,
+      0.8,
+      0.1
+    ]
+  ],
+  "params": {
+    "jitter": 0.3,
+    "lines": 180
+  }
+}

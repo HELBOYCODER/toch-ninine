@@ -1,0 +1,21 @@
+{
+  "name": "kaleido_fold",
+  "author": "factory",
+  "version": 1,
+  "tags": [
+    "factory",
+    "symmetry"
+  ],
+  "adsr": [
+    [
+      0.01,
+      0.15,
+      0.6,
+      0.3
+    ]
+  ],
+  "params": {
+    "segments": 6,
+    "spin": 0.2
+  }
+}
